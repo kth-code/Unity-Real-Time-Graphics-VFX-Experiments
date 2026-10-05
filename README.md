@@ -52,14 +52,14 @@ Main Logic:
 - Use the colour of noise as the height.
   - 0/black has minimal displacement.
   - ≥ 1/white has maximum displacement
-- Move the noise texture continously with time as offset.
+- Move the noise texture continuously with time as offset.
 - Multiply with the scrolling noise with static noise to create moving noise that changes in both shape and offset. 
   - In practice, this creates peaks that fluctuate in height.
 - Multiply with the base shape texture to manipulate where peaks are allowed.
   - In the sample, the radial gradient ensure peaks starts to descend as it reaches the edge, creating a circular puddle.
   - The final noise shows the area where peaks can occur.
 - Translate noise into vertical displacement (G, which is represents the Y-axis).
-- Determine colour of fragment by performing linear extrapolation between the base colour and highlight colour with the noise (height) as input.
+- Determine colour of fragment by performing linear interpolation (LERP) between the base colour and highlight colour with the noise (height) as input.
 
 
 ## Texture Distortion
@@ -85,6 +85,6 @@ Main Logic:
   - ≥ 1/White has maximal displacement.
 - Combine 2 scrolling noises (with different speeds) to create a less repetitive pattern.
 - Determine the actual tiling with both the parameter "Tiling" and the scale of the plane.
-- Move the base texture continously with time as offset.
+- Move the base texture continuously with time as offset.
 - Add the noise to the scrolling UV of the base texture to introduce offset
 - Tint the texture to allow for variety and flexibility.
